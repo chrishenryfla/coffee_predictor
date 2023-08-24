@@ -19,7 +19,7 @@ def extract_feature_names(filename):
 
 # Main function to create the Streamlit app
 def main():
-    st.title("Model Selection App")
+    st.title("Coffee Quality Prediction App")
 
     # Sidebar to select the number of features
     num_features = st.sidebar.radio("Select Number of Features:", [2, 3])
