@@ -48,7 +48,7 @@ def main_page():
     st.write("- Select the number of features (2 or 3) for prediction.")
     st.write("- Choose a model based on the selected number of features.")
     st.write("- Enter details such as country of origin (below) and feature values (left sidebar).")
-    st.write("- Click the 'Make Prediction' button to see the prediction.")
+    st.write("- Click the 'Make Prediction' button to see the predicted Total Cup Points out of 10")
 
     st.header("Feature Description")
     st.write("- Aroma = fragrence or smell")
