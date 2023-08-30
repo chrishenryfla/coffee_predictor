@@ -1,5 +1,4 @@
 import streamlit as st
-import streamlit as st
 import joblib
 import re
 import pandas as pd
@@ -58,7 +57,7 @@ def main_page():
     st.write("- Balance = harmonious interaction between its various components, including acidity, sweetness, bitterness, and body")
     
     # Sidebar to select the number of features
-    num_features = st.sidebar.radio("Select Number of Features:", [2, 3])
+    num_features = st.sidebar.radio("Select Number of Features:", [2, 3], index=1)
 
     if num_features == 2:
         model_files = [
@@ -78,7 +77,7 @@ def main_page():
         ]
 
     st.header("Model and Feature Selection")
-    selected_model_file = st.selectbox("Select Model:", model_files)
+    selected_model_file = st.selectbox("Select Model:", model_files, index=3)
 
     # Load the selected model
     selected_model = load_model(selected_model_file)
@@ -88,6 +87,27 @@ def main_page():
 
     st.write("You have selected:", selected_model_file)
     st.write("Features:", feature_names)
+
+    
+    # Example dictionary of model RMSE values
+    model_rmse_values = {
+        "model_Aroma_Acidity_1.pkl": 0.3647593206059453,
+        "model_Aroma_Body_2.pkl": 0.37688258052955415,
+        "model_Aroma_Balance_3.pkl": 0.35307895416137697,
+        "model_Acidity_Body_4.pkl": 0.35829623252613757,
+        "model_Acidity_Balance_5.pkl": 0.34532259446732716,
+        "model_Body_Balance_6.pkl": 0.3494482838429561,
+        "model_Aroma_Acidity_Body_1.pkl": 0.35900496154653594,
+        "model_Aroma_Acidity_Balance_2.pkl": 0.34530955400586516,
+        "model_Aroma_Body_Balance_3.pkl": 0.3490474675990926,
+        "model_Acidity_Body_Balance_4.pkl": 0.34113254483468036
+    
+    }
+
+    # Get the RMSE value for the selected model
+    selected_model_rmse = model_rmse_values.get(selected_model_file, "RMSE not available")
+
+    st.write("Selected Model RMSE:", selected_model_rmse)
 
     # Input fields for user interaction
     st.header("Country Selection")
