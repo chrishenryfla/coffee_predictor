@@ -10,10 +10,10 @@ def intro_page():
     st.markdown("### Introduction")
     st.write("This app focuses on developiong the ability to use flavor metrics to predict coffee quality to increase the profitablity of crops.")
     st.write("The global coffee industry was valued at 466 Billion dollars in 2020 and is forecasted to continually increase into 2026.")
-    st.write("This tool will allow large and small business to enrich their knowledge of the endemic qualities of coffee in their respective regions.")
+    st.write("Coffee quality can be determined using a variety of features. This tool uses data from the [Coffee Quality Institute](https://database.coffeeinstitute.org) and machine learning to make predictions of overall quality, deemed 'Total Cup Points', from a reduced amount of features or 'Cupping Scores'.")
     st.markdown("### Data")
     st.write("The data that I am using includes more than 1300 occurrences across 8 quality metrics for coffee across continents. The 8 metrics have been reduced to 4 avoiding multicollinearity and overfitting while increasing interpretability and generalization of the model.")
-    st.write("- From these 4 numeric metrics, all combinations of 2 and 3 can be used with an associated country name to make reliable predictions on new unseen data with 10-11% mean squared error.")
+    st.write("- From these 4 numeric metrics, all combinations of 2 and 3 can be used with an associated country name to make reliable predictions on new unseen data with 0.341-0.377 root mean squared error after an 80/20 train test split.")
     st.write("- Country names are one-hot encoded before being introduced to the model. This allows the model to determine how the predicted value will be penalized or boosted based on the presence of a particular country, considering interactions with the numeric features and the overall model structure.")
         
     st.image("intro_image.png", caption="Project Schematic", use_column_width=True)
